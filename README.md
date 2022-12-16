@@ -16,7 +16,9 @@ pip install pyrogram
 Before using setup:
 + sentences.txt - paste here message text
 + push_text.txt - paste here words for tagging users
+
 Sentences and words start from new line
+
 Run
 ```
 python start.py
