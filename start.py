@@ -2,6 +2,15 @@ from pyrogram import Client, enums
 import random
 import time
 
+start_print = '''
+-----------------------------------
+
+User Tag Telegram
+
+-----------------------------------
+'''
+print(start_print)
+print("Subscribe to https://t.me/holey_moon")
 
 api_id = 25983686
 api_hash = "d49ffa3e2b617c66250b7f4c169d1cb9"
@@ -14,6 +23,7 @@ app = Client(
     "alice",
     api_id=api_id, api_hash=api_hash
 )
+
 
 app.start()
 dialogs = [dialog for dialog in app.get_dialogs(limit=20)]
