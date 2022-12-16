@@ -3,6 +3,9 @@
 <picture>
   <img width=350 height=350 alt="Furude Rika" src="https://i.imgur.com/x0OqKJ4.jpeg">
 </picture>
+<br>
+Subscribe to our channel https://t.me/holey_moon
+<br>
 
 ### INSTALLATION
 
