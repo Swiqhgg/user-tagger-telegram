@@ -62,6 +62,8 @@ while True:
         app.send_chat_action(chat_id, enums.ChatAction.TYPING)
         time.sleep(random.randint(5, 10))
         app.send_message(chat_id, msg, parse_mode=enums.ParseMode.HTML)
+    except KeyboardInterrupt:
+        break
     except:
         pass
     
