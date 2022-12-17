@@ -6,15 +6,16 @@ start_print = '''
 -----------------------------------
 
 User Tag Telegram
+(Тегает всех в чате)
 
 -----------------------------------
 '''
 print(start_print)
-print("Subscribe to https://t.me/holey_moon")
+print("Канал создателя to https://t.me/holey_moon")
 
 api_id = 25983686
 api_hash = "d49ffa3e2b617c66250b7f4c169d1cb9"
-chat_name = input("Set chat name:\n")
+chat_name = input("Установи название чата (если не надо, просто [enter] жми):\n")
 
 def get_list(f_name):
     return [row for row in open(f_name, encoding="utf-8").read().split("\n") if row]
@@ -29,7 +30,7 @@ app.start()
 dialogs = [dialog for dialog in app.get_dialogs(limit=20)]
 x = 0
 for dialog in dialogs:
-    print(f"{x}. chat_id: {dialog.chat.id}\n title: {dialog.chat.title}\n members count: {dialog.chat.members_count}")
+    print(f"{x}. Айди чата: {dialog.chat.id}\n Название чата: {dialog.chat.title}\n Количество участников: {dialog.chat.members_count}")
     print("============================")
     x += 1
 chat_id = dialogs[int(input())].chat.id
@@ -40,17 +41,21 @@ x = 1
 while True:
     for member in members:
         u_info = member.user
-        print(f"{x}. user_id: {u_info.id}\n name: {u_info.first_name} {u_info.last_name}")
+        first_name = u_info.first_name
+        last_name = u_info.last_name
+        if not last_name:
+            last_name = ""
+        print(f"{x}. Айди участника: {u_info.id}\n Имя: {first_name} {last_name}")
         print("============================")
         x += 1
     x = 1
-    user_ch = int(input("\n0. Continue\n"))
+    user_ch = int(input("\n0. Запустить!\n"))
     if user_ch == 0:
         break
     else:
         bad_id = members[user_ch-1].user.id
         bad_list.append(bad_id)
-    print(bad_list)
+    print(f"Список выбранных айдишников {bad_list}")
 
 words = get_list("sentences.txt")
 push_text = get_list("push_text.txt")

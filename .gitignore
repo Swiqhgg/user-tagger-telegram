@@ -1,3 +1,5 @@
 
 *.session
 *.session-journal
+sentences.txt
+*.txt

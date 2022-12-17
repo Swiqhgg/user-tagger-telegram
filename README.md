@@ -4,23 +4,25 @@
   <img width=350 height=350 alt="Furude Rika" src="https://i.imgur.com/x0OqKJ4.jpeg">
 </picture>
 <br>
-Subscribe to our channel https://t.me/holey_moon
+Подпишись на наш телеграм https://t.me/holey_moon
 <br>
 
-### INSTALLATION
+### УСТАНОВКА
 
 ```
 pip install pyrogram
 ```
-### HOW TO USE
-Before using setup:
-+ sentences.txt - paste here message text
-+ push_text.txt - paste here words for tagging users
+### ИСПОЛЬЗОВАНИЕ
+Перез запуском нужно заполнить данными файлы:
++ sentences.txt - сюда вставлять шаблоны
++ push_text.txt - сюда вставлять матюки всякие
 
-Sentences and words start from new line
+Шаблоны и матюки писать с новой строки
 
-Run
+Запуск
 ```
 python start.py
 ```
-Select chat and users choosing them from lists that script prints. Then tap 0 - countinue. Bot starts sending pushes to users
+После запуска выпадает список чатов. Вводите цифру чата. Она находится в самом начале каждой строки в списке.
+Также выбирайте пользователей. Когда нужные пользователи выбраны, жмите 0 - скрипт запустится
+Удачи в использовании!!!
