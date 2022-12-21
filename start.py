@@ -1,6 +1,7 @@
 from pyrogram import Client, enums
 import random
 import time
+import os
 
 start_print = '''
 -----------------------------------
@@ -60,6 +61,7 @@ while True:
 words = get_list("sentences.txt")
 push_text = get_list("push_text.txt")
 chat_check = list(range(10))
+photos = os.listdir("photos")
 
 while True:
     try:
@@ -74,9 +76,15 @@ while True:
             if title != chat_name:
                 app.set_chat_title(chat_id, chat_name)
                 app.delete_chat_photo(chat_id)
-        app.send_chat_action(chat_id, enums.ChatAction.TYPING)
-        time.sleep(random.randint(5, 10))
-        app.send_message(chat_id, msg, parse_mode=enums.ParseMode.HTML)
+        if photos:
+            app.send_chat_action(chat_id, enums.ChatAction.UPLOAD_PHOTO)
+            time.sleep(random.randint(5, 10))
+            photo = f"photos/{random.choice(photos)}"
+            app.send_photo(chat_id, photo, caption=msg, parse_mode=enums.ParseMode.HTML)
+        else:
+            app.send_chat_action(chat_id, enums.ChatAction.TYPING)
+            time.sleep(random.randint(5, 10))
+            app.send_message(chat_id, msg, parse_mode=enums.ParseMode.HTML)
     except KeyboardInterrupt:
         break
     except:
