@@ -4,3 +4,4 @@
 sentences.txt
 *.txt
 *.jpg
+*.pyc
