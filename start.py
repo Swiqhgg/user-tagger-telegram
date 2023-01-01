@@ -78,7 +78,7 @@ while True:
                 app.delete_chat_photo(chat_id)
         if photos:
             app.send_chat_action(chat_id, enums.ChatAction.UPLOAD_PHOTO)
-            time.sleep(cfg.send_time)
+            time.sleep(random.randint(cd-3, cd+3))
             photo = f"photos/{random.choice(photos)}"
             app.send_photo(chat_id, photo, caption=msg, parse_mode=enums.ParseMode.HTML)
         else:
