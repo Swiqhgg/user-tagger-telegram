@@ -60,9 +60,8 @@ words = get_list("sentences.txt")
 push_text = get_list("push_text.txt")
 chat_check = list(range(10))
 photos = os.listdir("photos")
-cd = cfg.send_time
-if cd-3 <= 0:
-    cd = 4
+
+
 while True:
     try:
         word = random.choice(words)
@@ -78,12 +77,12 @@ while True:
                 app.delete_chat_photo(chat_id)
         if photos:
             app.send_chat_action(chat_id, enums.ChatAction.UPLOAD_PHOTO)
-            time.sleep(random.randint(cd-3, cd+3))
+            time.sleep(cfg.send_time)
             photo = f"photos/{random.choice(photos)}"
             app.send_photo(chat_id, photo, caption=msg, parse_mode=enums.ParseMode.HTML)
         else:
             app.send_chat_action(chat_id, enums.ChatAction.TYPING)
-            time.sleep(random.randint(cd-3, cd+3))
+            time.sleep(cfg.send_time)
             app.send_message(chat_id, msg, parse_mode=enums.ParseMode.HTML)
     except KeyboardInterrupt:
         break
