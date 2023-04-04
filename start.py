@@ -1,3 +1,4 @@
+from pyrogram.errors import FloodWait
 from pyrogram import Client, enums
 import random
 import time
@@ -84,6 +85,8 @@ while True:
             app.send_chat_action(chat_id, enums.ChatAction.TYPING)
             time.sleep(cfg.send_time)
             app.send_message(chat_id, msg, parse_mode=enums.ParseMode.HTML)
+    except FloodWait as e:
+        time.sleep(e.value+3)
     except KeyboardInterrupt:
         break
     except:
